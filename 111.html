@@ -9,6 +9,35 @@
 <body>
     <h1>如何获得一个网站</h1>
     <pre>目前是通过github api直接进行测试</pre>
-    
+    <script>
+              function GetQueryString(api) {
+        var reg = new RegExp("(^|&)" + api + "=([^&]*)(&|$)");
+        var r = decodeURI(window.location.search.substr(1)).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+      }
+      var sname = GetQueryString("passwd");
+      if (sname != null) {
+        var sname_ = decodeURIComponent(sname);
+      }
+      function GetQueryString(a2pi) {
+        var r2eg = new RegExp("(^|&)" + a2pi + "=([^&]*)(&|$)");
+        var r2 = decodeURI(window.location.search.substr(1)).match(r2eg);
+        if (r2 != null) return unescape(r2[2]);
+        return null;
+      }
+      var s2name = GetQueryString("user");
+      if (s2name != null) {
+        var s2name_ = decodeURIComponent(s2name);
+      }
+      if (sname!=null){
+        if (s2name){
+            document.write("200 OK")
+        }
+        else{
+            document.write("error 参数错误")
+        }
+      }else{document.write('<form action="111.html">Github 令牌: <input type="password" name="passwd"><br>用户名: <input type="text" name="user" value="这里填写你的用户名"><br><input type="submit" value="提交"></form>')}
+    </script>
 </body>
 </html>
